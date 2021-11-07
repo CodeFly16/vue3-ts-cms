@@ -1,3 +1,3 @@
-import BaseEchart from './src/base-echart.vue'
+import BaseEchart from './src/base-echart.vue';
 
-export default BaseEchart
+export default BaseEchart;
