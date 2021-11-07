@@ -64,39 +64,6 @@ export function pathMapToMenu(
   }
 }
 
-// export function pathMapBreadcrumbs(userMenus: any[], currentPath: string) {
-//   const breadcrumbs: IBreadcrumb[] = []
-
-//   for (const menu of userMenus) {
-//     if (menu.type === 1) {
-//       const findMenu = pathMapToMenu(menu.children ?? [], currentPath)
-//       if (findMenu) {
-//         breadcrumbs.push({ name: menu.name, path: menu.url })
-//         breadcrumbs.push({ name: findMenu.name, path: findMenu.url })
-//         return findMenu
-//       }
-//     } else if (menu.type === 2 && menu.url === currentPath) {
-//       return menu
-//     }
-//   }
-
-//   return breadcrumbs
-// }
-
-// // /main/system/role  -> type === 2 对应menu
-// export function pathMapToMenu(userMenus: any[], currentPath: string): any {
-//   for (const menu of userMenus) {
-//     if (menu.type === 1) {
-//       const findMenu = pathMapToMenu(menu.children ?? [], currentPath)
-//       if (findMenu) {
-//         return findMenu
-//       }
-//     } else if (menu.type === 2 && menu.url === currentPath) {
-//       return menu
-//     }
-//   }
-// }
-
 export function mapMenusToPermissions(userMenus: any[]) {
   const permissions: string[] = [];
 

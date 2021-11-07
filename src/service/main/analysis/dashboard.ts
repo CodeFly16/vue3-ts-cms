@@ -1,4 +1,4 @@
-import LYFRequest from '../../index';
+import LyfRequest from '../../index';
 
 enum DashboardAPI {
   categoryGoodsCount = '/goods/category/count',
@@ -8,25 +8,25 @@ enum DashboardAPI {
 }
 
 export function getCategoryGoodsCount(): any {
-  return LYFRequest.get({
+  return LyfRequest.get({
     url: DashboardAPI.categoryGoodsCount
   });
 }
 
 export function getCategoryGoodsSale(): any {
-  return LYFRequest.get({
+  return LyfRequest.get({
     url: DashboardAPI.categoryGoodsSale
   });
 }
 
 export function getCategoryGoodsFavor(): any {
-  return LYFRequest.get({
+  return LyfRequest.get({
     url: DashboardAPI.categoryGoodsFavor
   });
 }
 
 export function getAddressGoodsSale(): any {
-  return LYFRequest.get({
+  return LyfRequest.get({
     url: DashboardAPI.addressGoodsSale
   });
 }

@@ -1,6 +1,6 @@
-import LYFRequest from './request/index';
+import LyfRequest from './request/index';
 import { BASE_URL, TIME_OUT } from './request/config';
-const lyfRequest = new LYFRequest({
+const lyfRequest = new LyfRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
   interceptors: {

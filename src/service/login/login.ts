@@ -1,4 +1,4 @@
-import LYFRequest from '../index';
+import LyfRequest from '../index';
 
 import { IAccount, ILoginResult } from './type';
 import { IDataType } from '../types';
@@ -10,21 +10,21 @@ enum LoginAPI {
 }
 
 export function accountLoginRequest(account: IAccount) {
-  return LYFRequest.post<IDataType<ILoginResult>>({
+  return LyfRequest.post<IDataType<ILoginResult>>({
     url: LoginAPI.AccountLogin,
     data: account
   });
 }
 
 export function requestUserInfoById(id: number) {
-  return LYFRequest.get<IDataType>({
+  return LyfRequest.get<IDataType>({
     url: LoginAPI.LoginUserInfo + id,
     showLoading: false
   });
 }
 
 export function requestUserMenusByRoleId(id: number) {
-  return LYFRequest.get<IDataType>({
+  return LyfRequest.get<IDataType>({
     url: LoginAPI.UserMenus + id + '/menu',
     showLoading: false
   });

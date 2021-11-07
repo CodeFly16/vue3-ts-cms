@@ -1,19 +1,19 @@
 import axios from 'axios';
 import type { AxiosInstance } from 'axios';
-import type { LYFRequestConfig } from './types';
+import type { LyfRequestConfig } from './types';
 
 import localCache from '@/utils/cache';
 
 import { ElLoading, ILoadingInstance } from 'element-plus';
 
 const DEAFULT_LOADING = true;
-export default class LYFRequest {
+export default class LyfRequest {
   private instance: AxiosInstance;
-  private readonly options: LYFRequestConfig;
+  private readonly options: LyfRequestConfig;
   private showLoading: boolean;
   private loading?: ILoadingInstance;
 
-  constructor(options: LYFRequestConfig) {
+  constructor(options: LyfRequestConfig) {
     this.options = options;
     this.showLoading = options.showLoading ?? DEAFULT_LOADING;
     this.instance = axios.create(options);
@@ -62,7 +62,7 @@ export default class LYFRequest {
       }
     );
   }
-  request<T>(config: LYFRequestConfig<T>): Promise<T> {
+  request<T>(config: LyfRequestConfig<T>): Promise<T> {
     return new Promise((resolve, reject) => {
       // 1.单个请求对请求config的处理
       if (config.interceptors?.requestInterceptor) {
@@ -96,19 +96,19 @@ export default class LYFRequest {
         });
     });
   }
-  get<T>(config: LYFRequestConfig<T>): Promise<T> {
+  get<T>(config: LyfRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' });
   }
 
-  post<T>(config: LYFRequestConfig<T>): Promise<T> {
+  post<T>(config: LyfRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' });
   }
 
-  delete<T>(config: LYFRequestConfig<T>): Promise<T> {
+  delete<T>(config: LyfRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' });
   }
 
-  patch<T>(config: LYFRequestConfig<T>): Promise<T> {
+  patch<T>(config: LyfRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' });
   }
 }

@@ -1,5 +1,5 @@
-import LYFBreadcrumb from './src/breadcrumb.vue';
+import LyfBreadcrumb from './src/breadcrumb.vue';
 
-export { IBreadcrumb } from './types';
+export type { IBreadcrumb } from './types';
 
-export default LYFBreadcrumb;
+export default LyfBreadcrumb;

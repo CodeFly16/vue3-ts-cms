@@ -9,7 +9,7 @@ import { IRootState, IStoreType } from './types';
 const store = createStore<IRootState>({
   state: () => {
     return {
-      name: 'coderwhy',
+      name: 'lyf',
       age: 18,
       entireDepartment: [],
       entireRole: [],

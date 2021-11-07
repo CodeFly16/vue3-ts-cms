@@ -1,9 +1,9 @@
-import LYFRequest from '../../index';
+import LyfRequest from '../../index';
 
 import { IDataType } from '../../types';
 
 export function getPageListData(url: string, queryInfo: any): any {
-  return LYFRequest.post<IDataType>({
+  return LyfRequest.post<IDataType>({
     url: url,
     data: queryInfo
   });
@@ -11,20 +11,20 @@ export function getPageListData(url: string, queryInfo: any): any {
 
 // url: /users/id
 export function deletePageData(url: string): any {
-  return LYFRequest.delete<IDataType>({
+  return LyfRequest.delete<IDataType>({
     url: url
   });
 }
 
 export function createPageData(url: string, newData: any): any {
-  return LYFRequest.post<IDataType>({
+  return LyfRequest.post<IDataType>({
     url: url,
     data: newData
   });
 }
 
 export function editPageData(url: string, editData: any): any {
-  return LYFRequest.patch<IDataType>({
+  return LyfRequest.patch<IDataType>({
     url: url,
     data: editData
   });

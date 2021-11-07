@@ -6,7 +6,7 @@
       @click="handleFoldClick"
     ></i>
     <div class="content">
-      <hy-breadcrumb :breadcrumbs="breadcrumbs" />
+      <Lyf-breadcrumb :breadcrumbs="breadcrumbs" />
       <user-info />
     </div>
   </div>
@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 import UserInfo from './user-info.vue';
-import HyBreadcrumb from '@/base-ui/breadcrumb';
+import LyfBreadcrumb from '@/base-ui/breadcrumb';
 
 import { useStore } from '@/store';
 import { useRoute } from 'vue-router';
@@ -24,7 +24,7 @@ import { pathMapBreadcrumbs } from '@/utils/map-menus';
 export default defineComponent({
   components: {
     UserInfo,
-    HyBreadcrumb
+    LyfBreadcrumb
   },
   emits: ['foldChange'],
   setup(props, { emit }) {
