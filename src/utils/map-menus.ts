@@ -1,4 +1,4 @@
-import { IBreadcrumb } from '@/base-ui/breadcrumb/types';
+import { IBreadcrumb } from '@/base-ui/breadcrumb';
 import { RouteRecordRaw } from 'vue-router';
 
 let firstMenu: any = null;
@@ -10,8 +10,9 @@ export function mapMenusToRoutes(userMenus: any[]): RouteRecordRaw[] {
   const allRoutes: RouteRecordRaw[] = [];
   const routeFiles = require.context('../router/main', true, /\.ts/);
   routeFiles.keys().forEach((key) => {
-    // const route = require('../router/main' + key.split('.')[1]);
-    // allRoutes.push(route.default);
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const route = require('../router/main' + key.split('.')[1]);
+    allRoutes.push(route.default);
   });
 
   // 2.根据菜单获取需要添加的routes
@@ -37,10 +38,7 @@ export function mapMenusToRoutes(userMenus: any[]): RouteRecordRaw[] {
   return routes;
 }
 
-export function pathMapBreadcrumbs(
-  userMenus: any[],
-  currentPath: string
-): IBreadcrumb[] {
+export function pathMapBreadcrumbs(userMenus: any[], currentPath: string) {
   const breadcrumbs: IBreadcrumb[] = [];
   pathMapToMenu(userMenus, currentPath, breadcrumbs);
   return breadcrumbs;
@@ -99,7 +97,7 @@ export function pathMapToMenu(
 //   }
 // }
 
-export function mapMenusToPermissions(userMenus: any[]): string[] {
+export function mapMenusToPermissions(userMenus: any[]) {
   const permissions: string[] = [];
 
   const _recurseGetPermission = (menus: any[]) => {
@@ -116,7 +114,7 @@ export function mapMenusToPermissions(userMenus: any[]): string[] {
   return permissions;
 }
 
-export function menuMapLeafKeys(menuList: any[]): number[] {
+export function menuMapLeafKeys(menuList: any[]) {
   const leftKeys: number[] = [];
 
   const _recurseGetLeaf = (menuList: any[]) => {
