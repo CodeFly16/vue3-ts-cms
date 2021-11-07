@@ -2,6 +2,8 @@ import axios from 'axios';
 import type { AxiosInstance } from 'axios';
 import type { LYFRequestConfig } from './types';
 
+import localCache from '@/utils/cache';
+
 import { ElLoading, ILoadingInstance } from 'element-plus';
 
 const DEAFULT_LOADING = true;
@@ -28,6 +30,10 @@ export default class LYFRequest {
     //全局拦截器
     this.instance.interceptors.request.use(
       (config) => {
+        const token = localCache.getCache('token');
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -46,12 +52,7 @@ export default class LYFRequest {
     this.instance.interceptors.response.use(
       (config) => {
         this.loading?.close();
-        const { data } = config.data;
-        if (data.returnCode === '-1001') {
-          console.log('Error');
-        } else {
-          return data;
-        }
+        return config;
       },
       (error) => {
         if (error.response.status !== 200) {
